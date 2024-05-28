@@ -1,0 +1,6 @@
+&sensors {
+    left_config {
+        compatible = "left-sensor-config";
+        triggers-per-rotation = <18>;
+    };
+};
