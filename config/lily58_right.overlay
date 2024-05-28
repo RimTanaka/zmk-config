@@ -1,6 +1,16 @@
-&sensors {
-    right_config {
-        compatible = "right-sensor-config";
-        triggers-per-rotation = <24>;
+/dts-v1/;
+/plugin/;
+
+/ {
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            &sensors {
+                right_config {
+                    compatible = "right-sensor-config";
+                    triggers-per-rotation = <24>;
+                };
+            };
+        };
     };
 };
