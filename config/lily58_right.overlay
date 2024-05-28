@@ -1,0 +1,6 @@
+&sensors {
+    right_config {
+        compatible = "right-sensor-config";
+        triggers-per-rotation = <24>;
+    };
+};
