@@ -1,8 +1,0 @@
-/ {
-    ec11_right: ec11_right {
-        compatible = "alps,ec11";
-        label = "RIGHT_ENCODER";
-        gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
-        // Дополнительные параметры, если требуются
-    };
-};
