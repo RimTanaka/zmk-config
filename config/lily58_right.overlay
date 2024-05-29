@@ -1,16 +1,8 @@
-/dts-v1/;
-/plugin/;
-
 / {
-    fragment@0 {
-        target-path = "/";
-        __overlay__ {
-            &sensors {
-                right_config {
-                    compatible = "right-sensor-config";
-                    triggers-per-rotation = <24>;
-                };
-            };
-        };
+    ec11_right: ec11_right {
+        compatible = "alps,ec11";
+        label = "RIGHT_ENCODER";
+        gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+        // Дополнительные параметры, если требуются
     };
 };
