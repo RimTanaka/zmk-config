@@ -1,0 +1,7 @@
+&gpio0 {
+    ext_power: ext_power {
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+        init-delay-ms = <100>;
+    };
+};
