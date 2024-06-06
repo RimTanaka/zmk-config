@@ -5,3 +5,25 @@
         init-delay-ms = <100>;
     };
 };
+&i2c1 {
+    status = "okay";
+
+    ssd1306: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+        prechargep = <0xF1>;
+        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+        inversion-on;
+        ready-time-ms = <10>;
+        height = <64>;
+        width = <128>;
+        supply-gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+    };
+};
