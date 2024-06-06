@@ -1,9 +1,0 @@
-/ {
-    gpio_keys {
-        compatible = "gpio-keys";
-        ext_power {
-            label = "EXT_POWER";
-            gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
-        };
-    };
-};
