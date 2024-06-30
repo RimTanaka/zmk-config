@@ -1,5 +1,3 @@
-#include <dt-bindings/zmk/keys.h>
-
 / {
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
