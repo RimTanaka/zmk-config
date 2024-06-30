@@ -16,32 +16,28 @@
             label = "undo";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI Z>, // Отменить (Cmd+Z на Mac)
-                        <&macro_release &kp LGUI Z>;
+            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp Z>, <&macro_release &kp LGUI>; // Отменить (Cmd+Z на Mac)
         };
 
         cut: cut {
             label = "cut";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI X>, // Вырезать (Cmd+X на Mac)
-                        <&macro_release &kp LGUI X>;
+            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp X>, <&macro_release &kp LGUI>; // Вырезать (Cmd+X на Mac)
         };
 
         copy: copy {
             label = "copy";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI C>, // Копировать (Cmd+C на Mac)
-                        <&macro_release &kp LGUI C>;
+            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp C>, <&macro_release &kp LGUI>; // Копировать (Cmd+C на Mac)
         };
 
         paste: paste {
             label = "paste";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI V>, // Вставить (Cmd+V на Mac)
-                        <&macro_release &kp LGUI V>;
+            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp V>, <&macro_release &kp LGUI>; // Вставить (Cmd+V на Mac)
         };
     };
 
