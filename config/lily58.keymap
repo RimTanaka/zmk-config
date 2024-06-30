@@ -59,18 +59,7 @@
                              &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET   &mo 2   &kp BSPC &kp RGUI
             >;
 
-            encoder_left {
-                    compatible = "zmk,behavior";
-                    label = "Left Encoder";
-                    bindings = <&incdec LEFT_RIGHT>;
-                    };
-
-            encoder_right {
-                    compatible = "zmk,behavior";
-                    label = "Right Encoder";
-                    bindings = <&incdec LEFT_RIGHT>;
-                    };
-        };
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 
 
         lower_layer {
