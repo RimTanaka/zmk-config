@@ -1,6 +1,15 @@
 #include "lily58.dtsi"
 
 &left_encoder {
-    a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    status = "okay"; // Убедитесь, что энкодер помечен как "okay"
+};
+
+&kscan0 {
+    // Добавьте GPIO для левого энкодера в col-gpios
+    col-gpios = <&pro_micro_a 1 GPIO_ACTIVE_HIGH>, // Пример GPIO для левого энкодера
+                <&pro_micro_a 0 GPIO_ACTIVE_HIGH>,
+                <&pro_micro_d 15 GPIO_ACTIVE_HIGH>,
+                <&pro_micro_d 14 GPIO_ACTIVE_HIGH>,
+                <&pro_micro_d 16 GPIO_ACTIVE_HIGH>,
+                <&pro_micro_d 10 GPIO_ACTIVE_HIGH>;
 };
