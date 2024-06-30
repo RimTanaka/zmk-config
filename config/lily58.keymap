@@ -10,6 +10,41 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+
+    macros {
+        undo: undo {
+            label = "undo";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI Z>, // Отменить (Cmd+Z на Mac)
+                        <&macro_release &kp LGUI Z>;
+        };
+
+        cut: cut {
+            label = "cut";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI X>, // Вырезать (Cmd+X на Mac)
+                        <&macro_release &kp LGUI X>;
+        };
+
+        copy: copy {
+            label = "copy";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI C>, // Копировать (Cmd+C на Mac)
+                        <&macro_release &kp LGUI C>;
+        };
+
+        paste: paste {
+            label = "paste";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI V>, // Вставить (Cmd+V на Mac)
+                        <&macro_release &kp LGUI V>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -51,13 +86,13 @@
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |comm+x |comm+c |comm+v|       |       |
+// |       |     |     |      |      |      |                   |comm+z|comm+x |comm+c |comm+v|       |       |
 // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
 // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  =   |   <-  |   v   |  ^   |  ->   |   \   |
 // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  /   |   -   |   +   |  [   |   ]   |       |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &mt LGUI X &mt LGUI C  &mt LGUI V &trans    &trans
+&trans    &trans &trans &trans  &trans  &trans                       &undo       &cut       &copy       &paste     &trans    &trans
 &kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7     &kp N8      &kp N9     &kp N0    &trans
 &kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &kp EQUAL   &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT &kp BSLH
 &kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp SLASH   &kp MINUS  &kp KP_PLUS &kp LBKT   &kp RBKT  &trans
