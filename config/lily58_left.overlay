@@ -1,4 +1,4 @@
-#include "my_split_keyboard.dtsi"
+#include "lily58.dtsi"
 
 &left_encoder {
     a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
