@@ -1,16 +1,22 @@
-/ {
+/* Основа файла ниже
+ * https://github.com/zmkfirmware/zmk/blob/main/app/boards/shields/lily58/lily58.dtsi 
+ * В ней все стандартные настройки
+ * Здесь заданы доп данные, такие как второй энкодер с его пинами
+ * Распиновку по proMicro можно глянуть тут https://zmk.dev/docs/development/new-shield#shield-overlays
+ */
 
+/ {
     right_encoder: encoder_right {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
     };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&right_encoder>;
-        triggers-per-rotation = <20>;
+        triggers-per-rotation = <18>;
     };
   
 };
