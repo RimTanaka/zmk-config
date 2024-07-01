@@ -10,6 +10,18 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+    behaviors {
+        left_encoder: left_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&inc_dec_kp C_VOL_UP>, <&inc_dec_kp C_VOL_DN>;
+        };
+        right_encoder: right_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <1>;
+            bindings = <&inc_dec_kp C_BRI_UP>, <&inc_dec_kp C_BRI_DN>;
+        };
+    };
 
     macros {
         undo: undo {
@@ -60,8 +72,8 @@
             >;
 
             sensor-bindings = <
-            &encoder_left
-            &encoder_right
+            &left_encoder
+            &right_encoder
         >;
         };
 
