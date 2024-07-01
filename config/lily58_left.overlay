@@ -3,7 +3,6 @@
         compatible = "zmk,behavior-encoder";
         label = "Left Encoder";
         binding-index = <0>;
-        tap-binding = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         #binding-cells = <0>;
     };
