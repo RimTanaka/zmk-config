@@ -1,9 +1,0 @@
-/ {
-    encoder_left {
-        compatible = "zmk,behavior-encoder";
-        label = "Left Encoder";
-        binding-index = <0>;
-        bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        #binding-cells = <0>;
-    };
-};
