@@ -1,9 +1,0 @@
-/ {
-    encoder_right {
-        compatible = "zmk,behavior-encoder";
-        label = "Right Encoder";
-        binding-index = <0>;
-        bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
-        #binding-cells = <0>;
-    };
-};
