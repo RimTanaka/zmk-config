@@ -1,0 +1,15 @@
+&encoder_left {
+    compatible = "zmk,behavior-encoder";
+    label = "Left Encoder";
+    pin-a = <&gpio0 0 GPIO_ACTIVE_LOW>;
+    pin-b = <&gpio0 1 GPIO_ACTIVE_LOW>;
+    tap-binding = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+};
+
+&encoder_right {
+    compatible = "zmk,behavior-encoder";
+    label = "Right Encoder";
+    pin-a = <&gpio0 2 GPIO_ACTIVE_LOW>;
+    pin-b = <&gpio0 3 GPIO_ACTIVE_LOW>;
+    tap-binding = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+};
