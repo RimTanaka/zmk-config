@@ -1,9 +1,10 @@
 / {
-    &encoder_right {
+    encoder_right {
         compatible = "zmk,behavior-encoder";
         label = "Right Encoder";
-        pin-a = <&gpio0 2 GPIO_ACTIVE_LOW>;
-        pin-b = <&gpio0 3 GPIO_ACTIVE_LOW>;
+        binding-index = <0>;
         tap-binding = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+        bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+        #binding-cells = <0>;
     };
 };
