@@ -10,23 +10,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-    behaviors {
-        encoder_left: encoder_left {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&inc_dec_kp C_VOL_UP>, <&inc_dec_kp C_VOL_DN>;
-        };
-        encoder_right: encoder_right {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <1>;
-            bindings = <&inc_dec_kp C_BRI_UP>, <&inc_dec_kp C_BRI_DN>;
-        };
-        enc_key_press: enc_key_press {
-            compatible = "zmk,behavior-key-press";
-            #binding-cells = <1>; // Добавлено свойство #binding-cells
-        };
-    };
-
     macros {
         undo: undo {
             label = "undo";
@@ -75,10 +58,7 @@
                              &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET   &mo 2   &kp BSPC &kp RGUI
             >;
 
-            sensor-bindings = <
-            &encoder_left
-            &encoder_right
-        >;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
 
