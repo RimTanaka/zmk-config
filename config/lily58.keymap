@@ -23,7 +23,7 @@
         };
         enc_key_press: enc_key_press {
             compatible = "zmk,behavior-key-press";
-            #binding-cells = <0>; // Добавлено свойство #binding-cells
+            #binding-cells = <1>; // Добавлено свойство #binding-cells
         };
     };
 
