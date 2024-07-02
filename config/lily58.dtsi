@@ -5,7 +5,6 @@
  * Распиновку по proMicro можно глянуть тут https://zmk.dev/docs/development/new-shield#shield-overlays
  */
 
-/ {
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
