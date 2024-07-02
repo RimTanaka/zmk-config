@@ -10,7 +10,11 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-    // Настройка энкодеров на правой и левой половинах, если создать .dtsi в папке то он игнорится
+/*
+ * Настройка энкодеров на правой и левой половинах, если создать .dtsi в папке то он игнорится
+ * Распиновка по Pro-Micro и настройка encoder
+ * https://zmk.dev/docs/development/new-shield#shield-overlays
+ */
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -92,7 +96,7 @@
                              &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET   &mo 2   &kp BSPC &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
 
@@ -111,7 +115,7 @@
                                               &trans            &trans       &trans        &trans   &trans    &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
         };
 
         raise_layer {
@@ -129,7 +133,8 @@
                         &trans  &trans  &trans    &trans   &trans    &trans      &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp LS(C_AC_SCROLL_UP) LS(C_AC_SCROLL_DOWN)>;
+
         };
     };
 };
