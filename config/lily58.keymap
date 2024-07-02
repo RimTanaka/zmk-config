@@ -5,7 +5,7 @@
  */
 
 // для скролинга мыши
-#define ZMK_MOUSE_SCRL_VAL 140
+// #define ZMK_MOUSE_SCRL_VAL 140
 #include <dt-bindings/zmk/mouse.h>
 
 #include <behaviors.dtsi>
