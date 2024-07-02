@@ -14,46 +14,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-/*
- * Настройка энкодеров на правой и левой половинах, если создать .dtsi в папке то он игнорится
- * Распиновка по Pro-Micro и настройка encoder
- * https://zmk.dev/docs/development/new-shield#shield-overlays
- */
-    left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        label = "LEFT_ENCODER";
-        a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-    };
-
-    // отзеркалил пины, чтобы энкодеры работали зеркально
-    right_encoder: encoder_right {
-        compatible = "alps,ec11";
-        label = "RIGHT_ENCODER";
-        a-gpios = <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        left_config {
-            triggers-per-rotation = <20>;
-        };
-
-        right_config {
-            triggers-per-rotation = <20>;
-        };
-
-        sensors = <
-            &left_encoder
-            &right_encoder
-        >;
-    };
-
-    // -------------------------------------
-
     macros {
         undo: undo {
             label = "undo";
@@ -143,4 +103,53 @@
 
         };
     };
+
+/*
+    * Настройка энкодеров на правой и левой половинах, если создать .dtsi в папке то он игнорится
+    * Распиновка по Pro-Micro и настройка encoder
+    * https://zmk.dev/docs/development/new-shield#shield-overlays
+    * Тут можно посмотреть распиновку клавиш
+    * https://docs.typeractive.xyz/build-guides/lily58-wireless/troubleshooting
+    * Пины которые не используются 
+    * D4, F4 и F5 не используются, D3 также можно использовать и получить к нему доступ через вывод светодиода, если вы не хотите использовать светодиоды
+    * D3 D4 = 3 4, F4 F5 = 20 21
+*/
+    left_encoder: encoder_left {
+        compatible = "alps,ec11";
+        label = "LEFT_ENCODER";
+        a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+    };
+
+    right_encoder: encoder_right {
+        compatible = "alps,ec11";
+        label = "RIGHT_ENCODER";
+        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <
+            &left_encoder
+            &right_encoder
+        >;
+        triggers-per-rotation = <20>;
+
+/*
+        left_config {
+            triggers-per-rotation = <20>;
+        };
+
+        right_config {
+            triggers-per-rotation = <20>;
+        };
+*/
+
+    };
+
+    // -------------------------------------
+
 };
