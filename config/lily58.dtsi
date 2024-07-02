@@ -23,11 +23,8 @@
     
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensor-names = "left_encoder", "right_encoder";
-        left_encoder = <&left_encoder>;
-        right_encoder = <&right_encoder>;
-        left_encoder_triggers_per_rotation = <20>;
-        right_encoder_triggers_per_rotation = <18>;
+        sensors = <&left_encoder &right_encoder>;
+        triggers_per_rotation = <20>;
     };
 
   
