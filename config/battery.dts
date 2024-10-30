@@ -1,9 +1,12 @@
 / {
     chosen {
-      zmk,battery = &vbatt;
+        zmk,battery = &vbatt;
     };
 
     vbatt: vbatt {
         compatible = "zmk,battery-voltage-divider";
+        // io-channels = <&adc 0>;  // Замените 0 на номер ADC канала для батареи
+        full-ohms = <300000>;    // Суммарное сопротивление делителя (200k + 100k)
+        output-ohms = <100000>;  // Нижний резистор (100k)
     };
-}
+};
