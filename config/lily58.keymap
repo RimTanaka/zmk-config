@@ -14,36 +14,79 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 // add mouse
+// Настройка мыши
 #define MOUSE_TIME_TO_MAX_SPEED 500 
 
 #define U_MOUSE_MOVE_MAX 3000
-#undef MOVE_UP
-#undef MOVE_DOWN
-#undef MOVE_LEFT
-#undef MOVE_RIGHT
-#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
-#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
-#define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
-#define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
 
+#ifndef MOVE_UP
+    #define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
+#else
+    #undef MOVE_UP
+    #define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
+#endif
+
+#ifndef MOVE_DOWN
+    #define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
+#else
+    #undef MOVE_DOWN
+    #define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
+#endif
+
+#ifndef MOVE_LEFT
+    #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
+#else
+    #undef MOVE_LEFT
+    #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
+#endif
+
+#ifndef MOVE_RIGHT
+    #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
+#else
+    #undef MOVE_RIGHT
+    #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
+#endif
+
+// Задаем время до максимальной скорости для движения
 &mmv {
     time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
 };
 
 #define U_MOUSE_SCROLL_MAX 20 
 
-#undef SCROLL_UP
-#undef SCROLL_DOWN
-#undef SCROLL_LEFT
-#undef SCROLL_RIGHT
-#define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
+#ifndef SCROLL_UP
+    #define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+#else
+    #undef SCROLL_UP
+    #define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+#endif
 
+#ifndef SCROLL_DOWN
+    #define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+#else
+    #undef SCROLL_DOWN
+    #define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+#endif
+
+#ifndef SCROLL_LEFT
+    #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
+#else
+    #undef SCROLL_LEFT
+    #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
+#endif
+
+#ifndef SCROLL_RIGHT
+    #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
+#else
+    #undef SCROLL_RIGHT
+    #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
+#endif
+
+// Задаем время до максимальной скорости для прокрутки
 &mwh {
     time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
 };
+
 
 / {
     macros {
