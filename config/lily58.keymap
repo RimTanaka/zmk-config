@@ -14,7 +14,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 // add mouse
-// Настройка мыши 
+// Настройка мыши
 #define MOUSE_TIME_TO_MAX_SPEED 500 
 
 #define U_MOUSE_MOVE_MAX 3000
@@ -27,7 +27,7 @@
 #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
 #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
 
-&mkp {
+&mmv {
     time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
 };
 
@@ -42,7 +42,9 @@
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-
+&mwh {
+    time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
+};
 
 / {
     macros {
@@ -109,7 +111,7 @@
 &bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                     &trans    &trans    &trans    &trans    &trans    &trans
 &kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                           &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
 &kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                        &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp UNDER
-&trans     &mkp SCROLL_LEFT &mkp SCROLL_RIGHT &mkp SCROLL_UP    &trans       &kp TILDE     &trans   &trans    &kp QMARK &kp MINUS &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE
+&trans     &mwh SCROLL_LEFT &mwh SCROLL_RIGHT &mwh SCROLL_UP    &trans       &kp TILDE     &trans   &trans    &kp QMARK &kp MINUS &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE
                                               &trans            &trans       &trans        &trans   &trans    &trans    &trans    &trans
             >;
 
