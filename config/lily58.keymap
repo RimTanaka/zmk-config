@@ -206,6 +206,7 @@
         // steps = <80>;
     };
 
+/*
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <
@@ -225,6 +226,7 @@
 
 
     };
+*/
 
     // -------------------------------------
 
