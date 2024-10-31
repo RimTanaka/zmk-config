@@ -27,6 +27,9 @@
 #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
 #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
 
+&mkp {
+    time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
+};
 
 #define U_MOUSE_SCROLL_MAX 20 
 
@@ -39,9 +42,7 @@
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mwh {
-    time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
-};
+
 
 / {
     macros {
