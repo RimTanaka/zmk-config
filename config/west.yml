@@ -12,7 +12,7 @@ manifest:
       remote: ftc 
       revision: mouse-ftc 
       import: app/west.yml
-    - name: zmk
+    - name: zmk-encoder
       remote: zmkfirmware
       revision: main
       import: app/west.yml
