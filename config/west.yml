@@ -2,7 +2,7 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-      #add mouse
+      #add mouse 
     - name: RimTanaka
       url-base: https://github.com/RimTanaka
     # Additional modules containing boards/shields/custom code can be listed here as well
