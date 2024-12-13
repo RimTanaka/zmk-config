@@ -18,6 +18,7 @@
 
 // add mouse
 // Настройка мыши
+/*
 #define MOUSE_TIME_TO_MAX_SPEED 500 
 
 #define U_MOUSE_MOVE_MAX 3000
@@ -48,6 +49,7 @@
 &mwh {
     time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
 };
+*/
 
 / {
     macros {
@@ -130,17 +132,17 @@
 // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
 // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
 // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   _   |
-// |       |scrl<|scrl>|scrl^ |      |  ~   |        |  |       |  ?   |  _    |  +    |  {   |   }   |  "|"  |
+// |       |     |     |      |      |  ~   |        |  |       |  ?   |  _    |  +    |  {   |   }   |  "|"  |
 //                     |      |      |      |        |  |       |      |       |       |
 // &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG
             bindings = <
 &bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                     &trans    &trans    &trans    &trans    &trans    &trans
 &kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                           &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
 &kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                        &kp CARET &kp AMPS  &kp ASTRK &kp LPAR  &kp RPAR  &kp UNDER
-&trans     &mwh SCROLL_LEFT &mwh SCROLL_RIGHT &mwh SCROLL_UP    &trans       &kp TILDE     &trans   &trans    &kp QMARK &kp MINUS &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE
+&trans     &trans           &trans            &trans            &trans       &kp TILDE     &trans   &trans    &kp QMARK &kp MINUS &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE
                                               &trans            &trans       &trans        &trans   &trans    &trans    &trans    &trans
             >;
-
+// &mwh SCROLL_LEFT &mwh SCROLL_RIGHT &mwh SCROLL_UP // -> TO SCROLL MOUSE
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp LEFT RIGHT>;
         };
 
@@ -179,7 +181,7 @@
         label = "LEFT_ENCODER";
         a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        // steps = <80>;
+        steps = <80>;
     };
 
     right_encoder: encoder_right {
@@ -187,10 +189,10 @@
         label = "RIGHT_ENCODER";
         a-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        // steps = <80>;
+        steps = <80>;
     };
 
-/*
+
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <
@@ -199,18 +201,18 @@
         >;
         triggers-per-rotation = <20>;
 
-//
-//        left_config {
-//            triggers-per-rotation = <20>;
-//        };
-//
-//        right_config {
-//            triggers-per-rotation = <20>;
-//        };
+
+        left_config {
+            triggers-per-rotation = <20>;
+        };
+
+        right_config {
+            triggers-per-rotation = <20>;
+        };
 
 
     };
-*/
+
 
     // -------------------------------------
 
