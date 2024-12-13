@@ -58,18 +58,26 @@
             #binding-cells = <0>;
             bindings = <&macro_press &kp LGUI>, <&macro_tap &kp V>, <&macro_release &kp LGUI>; // Вставить (Cmd+V на Mac)
         };
-
-        toggle_layer: toggle_layer {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "Toggle Layer";
-            #binding-cells = <1>;
-        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+// |  TAB  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   |   /   |
+// |  WIN |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   |   -   |
+// | SHIFT |  ;  |  Q  |  J   |  K   |  X   |   "["  |  |  "]"  |  B   |  M    |  W    |  V   |   Z   | SHIFT |
+//                     | ALT  | CTRL  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | CTRL  |
+        bindings = <
+&kp ESC   &kp N1   &kp N2    &kp N3   &kp N4    &kp N5                         &kp N6  &kp N7   &kp N8    &kp N9  &kp N0  &kp GRAVE
+&kp TAB   &kp SQT  &kp COMMA &kp DOT  &kp P     &kp Y                          &kp F   &kp G    &kp C     &kp R   &kp L   &kp FSLH
+&kp LGUI  &kp A    &kp O     &kp E    &kp U     &kp I                          &kp D   &kp H    &kp T     &kp N   &kp S   &kp MINUS
+&kp LSHFT &kp SEMI &kp Q     &kp J    &kp K     &kp X   &kp LBKT     &kp RBKT  &kp B   &kp M    &kp W     &kp V   &kp Z   &kp RSHFT
+                             &kp LALT &kp LCTRL &mo 1   &kp SPACE    &kp RET   &mo 2   &kp BSPC &kp LCTRL
+        >;
+/*
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
 // |  TAB  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   |   /   |
@@ -83,6 +91,7 @@
 &kp LSHFT &kp SEMI &kp Q     &kp J    &kp K    &kp X  &kp LBKT   &kp RBKT  &kp B   &kp M    &kp W     &kp V   &kp Z   &kp RSHFT
                              &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET   &mo 2   &kp BSPC &kp RGUI
             >;
+*/
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN  &inc_dec_kp UP DOWN>;
         };
@@ -107,39 +116,21 @@
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |   Mac  | LinX|     |      |      |      |                   |comm+z|comm+x |comm+c |comm+v|       |       |
+// |        |     |     |      |      |      |                   |comm+z|comm+x |comm+c |comm+v|       |       |
 // |   `    |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
 // |   F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  =   |   <-  |   v   |  ^   |  ->   |   \   |
 // |   F7   |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  /   |   -   |   +   |  [   |   ]   |       |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-    &toggle_layer LINUX     &toggle_layer MAC  &trans &trans  &trans  &trans                       &undo       &cut       &copy       &paste     &trans    &trans
-    &kp GRAVE               &kp N1             &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7     &kp N8      &kp N9     &kp N0    &trans
-    &kp F1                  &kp F2             &kp F3 &kp F4  &kp F5  &kp F6                       &kp EQUAL   &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT &kp BSLH
-    &kp F7                  &kp F8             &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp SLASH   &kp MINUS  &kp PLUS &kp LBKT   &kp RBKT  &trans
-                                                      &trans  &trans  &trans    &trans   &trans    &trans      &trans     &trans
+    &trans     &trans  &trans &trans  &trans  &trans                       &undo       &cut       &copy       &paste     &trans    &trans
+    &kp GRAVE  &kp N1  &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7     &kp N8      &kp N9     &kp N0    &trans
+    &kp F1     &kp F2  &kp F3 &kp F4  &kp F5  &kp F6                       &kp EQUAL   &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT &kp BSLH
+    &kp F7     &kp F8  &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp SLASH   &kp MINUS  &kp PLUS    &kp LBKT   &kp RBKT  &trans
+                              &trans  &trans  &trans    &trans   &trans    &trans      &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN  &inc_dec_kp LEFT RIGHT>;
 
-        };
-
-        linux_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-// |  TAB  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   |   /   |
-// |  WIN |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   |   -   |
-// | SHIFT |  ;  |  Q  |  J   |  K   |  X   |   "["  |  |  "]"  |  B   |  M    |  W    |  V   |   Z   | SHIFT |
-//                     | ALT  | CTRL  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | CTRL  |
-        bindings = <
-&kp ESC   &kp N1   &kp N2    &kp N3   &kp N4    &kp N5                         &kp N6  &kp N7   &kp N8    &kp N9  &kp N0  &kp GRAVE
-&kp TAB   &kp SQT  &kp COMMA &kp DOT  &kp P     &kp Y                          &kp F   &kp G    &kp C     &kp R   &kp L   &kp FSLH
-&kp LGUI  &kp A    &kp O     &kp E    &kp U     &kp I                          &kp D   &kp H    &kp T     &kp N   &kp S   &kp MINUS
-&kp LSHFT &kp SEMI &kp Q     &kp J    &kp K     &kp X   &kp LBKT     &kp RBKT  &kp B   &kp M    &kp W     &kp V   &kp Z   &kp RSHFT
-                             &kp LALT &kp LCTRL &mo 1   &kp SPACE    &kp RET   &mo 2   &kp BSPC &kp LCTRL
-        >;
-
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN  &inc_dec_kp UP DOWN>;
         };
     };
 
