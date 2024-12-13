@@ -8,48 +8,18 @@
 #define LINUX_LAYER 1  // Слой для Linux
 
 // для скролинга мыши
-// #define ZMK_MOUSE_SCRL_VAL 140
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
+
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/mouse.h>
+
+// --------------------------
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-
-// add mouse
-// Настройка мыши
-/*
-#define MOUSE_TIME_TO_MAX_SPEED 500 
-
-#define U_MOUSE_MOVE_MAX 3000
-#undef MOVE_UP
-#undef MOVE_DOWN
-#undef MOVE_LEFT
-#undef MOVE_RIGHT
-#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
-#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
-#define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
-#define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
-
-&mmv {
-    time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
-};
-
-#define U_MOUSE_SCROLL_MAX 20 
-
-#undef SCROLL_UP
-#undef SCROLL_DOWN
-#undef SCROLL_LEFT
-#undef SCROLL_RIGHT
-#define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
-
-&mwh {
-    time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
-};
-*/
 
 / {
     macros {
@@ -106,7 +76,7 @@
                              &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET   &mo 2   &kp BSPC &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc SCRL_UP SCRL_DOWN>;
         };
 
         linux_layer {
@@ -124,7 +94,7 @@
                          &kp LALT &kp LGUI &mo 1  &kp SPACE      &kp RET   &mo 2   &kp BSPC &kp LCTRL
         >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc SCRL_LEFT SCRL_RIGHT>;
     };
 
         lower_layer {
@@ -143,7 +113,7 @@
                                               &trans            &trans       &trans        &trans   &trans    &trans    &trans    &trans
             >;
 // &mwh SCROLL_LEFT &mwh SCROLL_RIGHT &mwh SCROLL_UP // -> TO SCROLL MOUSE
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp LEFT RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &msc SCRL_LEFT SCRL_RIGHT>;
         };
 
         raise_layer {
