@@ -7,7 +7,7 @@
 #define MAC_LAYER 0  // Слой для macOS
 #define LINUX_LAYER 1  // Слой для Linux
 
-// для скролинга мыши
+// для скролинга мыши -> https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
 
@@ -76,7 +76,7 @@
                              &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET   &mo 2   &kp BSPC &kp RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc SCRL_UP &msc SCRL_DOWN>;
         };
 
         linux_layer {
@@ -94,7 +94,7 @@
                          &kp LALT &kp LGUI &mo 1  &kp SPACE      &kp RET   &mo 2   &kp BSPC &kp LCTRL
         >;
 
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc SCRL_LEFT SCRL_RIGHT>;
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &msc SCRL_UP &msc SCRL_DOWN>;
     };
 
         lower_layer {
@@ -113,7 +113,7 @@
                                               &trans            &trans       &trans        &trans   &trans    &trans    &trans    &trans
             >;
 // &mwh SCROLL_LEFT &mwh SCROLL_RIGHT &mwh SCROLL_UP // -> TO SCROLL MOUSE
-            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &msc SCRL_LEFT SCRL_RIGHT>;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &msc SCRL_LEFT &msc SCRL_RIGHT>;
         };
 
         raise_layer {
