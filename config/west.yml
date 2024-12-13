@@ -3,18 +3,18 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
       #add mouse 
-    - name: RimTanaka
-      url-base: https://github.com/RimTanaka
+    # - name: RimTanaka
+    #   url-base: https://github.com/RimTanaka
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
-      remote: RimTanaka
-      revision: mouse-rim
-      import: app/west.yml
-      # remote: zmkfirmware
-      # revision: main
+      # remote: RimTanaka
+      # revision: mouse-rim
       # import: app/west.yml
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
   self:
     path: config
 
