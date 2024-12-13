@@ -25,8 +25,8 @@
 &msc {
     x-input-code = <INPUT_REL_HWHEEL>;
     y-input-code = <INPUT_REL_WHEEL>;
-    time-to-max-speed-ms = <300>;
-    acceleration-exponent = <4>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <1>;
 };
 
 / {
