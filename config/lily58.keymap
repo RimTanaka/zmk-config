@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define MAC_LAYER 0  // Слой для macOS
-#define LINUX_LAYER 3  // Слой для Linux
+#define MAC 0  // Слой для macOS
+#define LINUX 3  // Слой для Linux
 
 // для скролинга мыши -> https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
 // #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
@@ -107,17 +107,17 @@
 
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |Mac/LinX|    |     |      |      |      |                   |comm+z|comm+x |comm+c |comm+v|       |       |
+// |   Mac  | LinX|     |      |      |      |                   |comm+z|comm+x |comm+c |comm+v|       |       |
 // |   `    |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
 // |   F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  =   |   <-  |   v   |  ^   |  ->   |   \   |
 // |   F7   |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  /   |   -   |   +   |  [   |   ]   |       |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-    &tog LINUX_LAYER        &trans &trans &trans  &trans  &trans                       &undo       &cut       &copy       &paste     &trans    &trans
-    &kp GRAVE               &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7     &kp N8      &kp N9     &kp N0    &trans
-    &kp F1                  &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &kp EQUAL   &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT &kp BSLH
-    &kp F7                  &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp SLASH   &kp MINUS  &kp PLUS &kp LBKT   &kp RBKT  &trans
-                                          &trans  &trans  &trans   &trans    &trans    &trans      &trans     &trans
+    &toggle_layer LINUX     &toggle_layer MAC  &trans &trans  &trans  &trans                       &undo       &cut       &copy       &paste     &trans    &trans
+    &kp GRAVE               &kp N1             &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7     &kp N8      &kp N9     &kp N0    &trans
+    &kp F1                  &kp F2             &kp F3 &kp F4  &kp F5  &kp F6                       &kp EQUAL   &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT &kp BSLH
+    &kp F7                  &kp F8             &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp SLASH   &kp MINUS  &kp PLUS &kp LBKT   &kp RBKT  &trans
+                                                      &trans  &trans  &trans    &trans   &trans    &trans      &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN  &inc_dec_kp LEFT RIGHT>;
