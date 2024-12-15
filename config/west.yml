@@ -1,6 +1,6 @@
 manifest:
   remotes:
-    - name: zmkfirmware
+    - name: RimTanaka
       url-base: https://github.com/RimTanaka
   projects:
     - name: zmk
