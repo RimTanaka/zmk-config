@@ -171,14 +171,10 @@
 
 
         left_config {
-            debounce-press-ms = <10>;
-            debounce-release-ms = <10>;
             triggers-per-rotation = <20>;
         };
 
         right_config {
-            debounce-press-ms = <10>;
-            debounce-release-ms = <10>;
             triggers-per-rotation = <20>;
         };
 
