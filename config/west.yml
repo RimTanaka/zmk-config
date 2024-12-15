@@ -2,38 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-      
-    - name: englmaxi
-      url-base: https://github.com/englmaxi
-      #add mouse 
-    # - name: RimTanaka
-    #   url-base: https://github.com/RimTanaka
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: m165437 #new entry
+      url-base: https://github.com/M165437 #new entry
   projects:
     - name: zmk
-      # remote: RimTanaka
-      # revision: mouse-rim
-      # import: app/west.yml
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-dongle-display
-      remote: englmaxi
-      revision: main
+    - name: nice-view-gem #new entry
+      remote: m165437 #new entry
+      revision: main #new entry
   self:
     path: config
-
-# manifest:
-#   remotes:
-#     - name: zmkfirmware
-#       url-base: https://github.com/zmkfirmware
-#     - name: infused-kim
-#       url-base: https://github.com/infused-kim
-#   projects:
-#     - name: zmk
-#       remote: infused-kim
-#       revision: my-changes/split-encoder
-#       import: app/west.yml
-#   self:
-#     path: config
