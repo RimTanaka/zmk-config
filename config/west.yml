@@ -2,6 +2,9 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+      
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
       #add mouse 
     # - name: RimTanaka
     #   url-base: https://github.com/RimTanaka
@@ -15,6 +18,9 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: main
   self:
     path: config
 
