@@ -1,10 +1,12 @@
 manifest:
   remotes:
-    - name: RimTanaka
-      url-base: https://github.com/RimTanaka
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: Badjau
+      url-base: https://github.com/Badjau
   projects:
     - name: zmk
-      remote: RimTanaka
+      remote: zmkfirmware
       revision: main
       import: app/west.yml
   self:
