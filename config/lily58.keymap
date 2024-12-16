@@ -32,28 +32,24 @@
 / {
     macros {
         undo: undo {
-            node-label = "undo";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_press &kp LGUI>, <&macro_tap &kp Z>, <&macro_release &kp LGUI>; // Отменить (Cmd+Z на Mac)
         };
 
         cut: cut {
-            node-label = "cut";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_press &kp LGUI>, <&macro_tap &kp X>, <&macro_release &kp LGUI>; // Вырезать (Cmd+X на Mac)
         };
 
         copy: copy {
-            node-label = "copy";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_press &kp LGUI>, <&macro_tap &kp C>, <&macro_release &kp LGUI>; // Копировать (Cmd+C на Mac)
         };
 
         paste: paste {
-            node-label = "paste";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_press &kp LGUI>, <&macro_tap &kp V>, <&macro_release &kp LGUI>; // Вставить (Cmd+V на Mac)
@@ -146,7 +142,6 @@
 */
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        node-label = "LEFT_ENCODER";
         a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
@@ -154,7 +149,6 @@
 
     right_encoder: encoder_right {
         compatible = "alps,ec11";
-        node-label = "RIGHT_ENCODER";
         a-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
