@@ -137,8 +137,9 @@
     * Тут можно посмотреть распиновку клавиш
     * https://docs.typeractive.xyz/build-guides/lily58-wireless/troubleshooting
     * Пины которые не используются 
-    * D4, F4 и F5 не используются, D3 также можно использовать и получить к нему доступ через вывод светодиода, если вы не хотите использовать светодиоды
+    * D4, F4 и F5 не используются, D3 Занят Oled display (PIN SCL), a D2(PIN SDA)
     * D3 D4 = 3 4, F4 F5 = 20 21
+    * Pin D1 and D0 вроде тоже свободны
 */
     left_encoder: encoder_left {
         compatible = "alps,ec11";
@@ -149,7 +150,7 @@
 
     right_encoder: encoder_right {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
     };
